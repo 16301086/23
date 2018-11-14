@@ -9,13 +9,7 @@
     tools:context=".MainActivity">
 
     <!--name用于显示默认的fragment-->
-    <fragment
-        android:id="@+id/app_fragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:name="com.example.lenovo.myapplication.Main_Fragment"
-        android:layout_above="@id/navigation"
-        />
+
 
     <LinearLayout
         android:id="@+id/navigation"
@@ -106,5 +100,13 @@
         </LinearLayout>
     </LinearLayout>
 
+
+    <fragment
+        android:id="@+id/app_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.example.lenovo.myapplication.Moments_Fragment"
+        android:layout_above="@id/navigation"
+        />
 
 </RelativeLayout>

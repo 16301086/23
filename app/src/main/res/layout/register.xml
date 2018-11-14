@@ -28,11 +28,13 @@
             android:layout_marginBottom="10dp"/>
 
         <android.support.design.widget.TextInputLayout
+            android:id="@+id/register_phone"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="2dp">
 
             <android.support.design.widget.TextInputEditText
+                android:id="@+id/register_phone_context"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Phone"
@@ -42,11 +44,13 @@
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
+            android:id="@+id/register_name"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="2dp">
 
             <android.support.design.widget.TextInputEditText
+                android:id="@+id/register_name_context"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="User name"
@@ -55,11 +59,13 @@
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
+            android:id="@+id/register_password"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="2dp">
 
             <android.support.design.widget.TextInputEditText
+                android:id="@+id/register_password_context"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Password"
@@ -69,11 +75,13 @@
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
+            android:id="@+id/register_passwordConfiguration"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="2dp">
 
             <android.support.design.widget.TextInputEditText
+                android:id="@+id/register_passwordConfiguration_context"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Password Configuration"

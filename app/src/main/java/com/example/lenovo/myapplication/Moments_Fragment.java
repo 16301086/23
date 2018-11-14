@@ -8,6 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+/**
+ * created by Qin yiyi 16301087@bjtu.edu.cn
+ */
+
 public class Moments_Fragment extends Fragment {
     @Nullable
     @Override

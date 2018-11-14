@@ -10,12 +10,27 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+/**
+ * created by Qin yiyi 16301087@bjtu.edu.cn
+ */
+
 public class MainActivity extends AppCompatActivity {
+
+    Fragment currentFragment=null,moments_frg,find_frg,message_frg,me_frg;
+    FragmentManager manager = getSupportFragmentManager();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        moments_frg = new Moments_Fragment();
+        find_frg = new Find_Fragment();
+        message_frg = new Message_Fragment();
+
+        String username = getIntent().getStringExtra("username");
+        me_frg = new Main_Fragment(username);
+
+        currentFragment = moments_frg;
 
         // 获取对象
         LinearLayout moments=findViewById(R.id.moments);
@@ -26,37 +41,39 @@ public class MainActivity extends AppCompatActivity {
         message.setOnClickListener(l);
         LinearLayout home=findViewById(R.id.home);
         home.setOnClickListener(l);
+    }
 
-
-
+    private void showFragment(Fragment fragment) {
+        if (currentFragment != fragment) {//  判断传入的fragment是不是当前的currentFragmentgit
+            FragmentTransaction transaction = manager.beginTransaction();
+            transaction.hide(currentFragment);//  不是则隐藏
+            currentFragment = fragment;  //  然后将传入的fragment赋值给currentFragment
+            if (!fragment.isAdded()) { //  判断传入的fragment是否已经被add()过
+                transaction.add(R.id.app_fragment, fragment).show(fragment).commit();
+            } else {
+                transaction.show(fragment).commit();
+            }
+        }
     }
 
     View.OnClickListener l=new View.OnClickListener(){
         @Override
         public void onClick(View v) {
-            FragmentManager fm = getSupportFragmentManager();
-            FragmentTransaction ft = fm.beginTransaction();
-            Fragment f = null;
-
             switch (v.getId()){
                 case R.id.moments:
-                    f = new Moments_Fragment();
+                    showFragment(moments_frg);
                     break;
                 case R.id.find:
-                    f = new Find_Fragment();
+                    showFragment(find_frg);
                     break;
                 case R.id.message:
                     Toast.makeText(MainActivity.this, "This function is building!", Toast.LENGTH_LONG).show();
-                    f = new Message_Fragment();
+                    showFragment(message_frg);
                     break;
                 case R.id.home:
-                    f = new Main_Fragment();
+                    showFragment(me_frg);
                     break;
             }
-
-            // 用于替换每次所显示的app_fragment，用f替换当前的app_fragment
-            ft.replace(R.id.app_fragment,f);
-            ft.commit();
         }
     };
 }
